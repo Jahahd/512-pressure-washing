@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Touch Test</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; padding: 20px; }
+    .box {
+      width: 100%;
+      height: 150px;
+      background: #2e7fd6;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .box.clicked { background: #22c55e; }
+    #log { font-size: 14px; color: #333; white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; min-height: 200px; border-radius: 8px; }
+    h2 { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Touch/Click Diagnostic</h2>
+  <p style="margin-bottom:15px;color:#666">Tap the blue box. If it turns green and logs events below, touch works.</p>
+
+  <div class="box" id="testBox" onclick="handleClick(event)">TAP ME</div>
+
+  <div id="log">Event log:
+</div>
+
+  <script>
+    var log = document.getElementById('log');
+    var box = document.getElementById('testBox');
+    var count = 0;
+
+    function addLog(msg) {
+      count++;
+      log.textContent += count + '. ' + msg + '\n';
+    }
+
+    function handleClick(e) {
+      box.classList.toggle('clicked');
+      box.textContent = box.classList.contains('clicked') ? 'CLICKED!' : 'TAP ME';
+      addLog('onclick fired - type: ' + e.type);
+    }
+
+    box.addEventListener('touchstart', function(e) {
+      addLog('touchstart at ' + e.touches[0].clientX + ',' + e.touches[0].clientY);
+    });
+
+    box.addEventListener('touchend', function(e) {
+      addLog('touchend');
+    });
+
+    box.addEventListener('pointerdown', function(e) {
+      addLog('pointerdown - pointerType: ' + e.pointerType);
+    });
+
+    box.addEventListener('mousedown', function(e) {
+      addLog('mousedown');
+    });
+
+    addLog('JS loaded. User agent: ' + navigator.userAgent.substring(0, 80));
+  </script>
+</body>
+</html>
