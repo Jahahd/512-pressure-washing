@@ -105,14 +105,14 @@ function VideoHero() {
       <video className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: "blur(20px) brightness(0.5)", transform: "scale(1.15)" }}
         autoPlay muted loop playsInline poster="/house-after.jpeg">
-        <source src="/pressure-washing.mp4" type="video/mp4" />
+        <source src="/pressure-washing-web.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-y-0 left-0 z-10 w-12 sm:w-16 bg-gradient-to-r from-black/60 to-transparent pointer-events-none" />
       <div className="absolute inset-y-0 right-0 z-10 w-12 sm:w-16 bg-gradient-to-l from-black/60 to-transparent pointer-events-none" />
       <video className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: "center 80%" }}
         autoPlay muted loop playsInline poster="/house-after.jpeg">
-        <source src="/pressure-washing.mp4" type="video/mp4" />
+        <source src="/pressure-washing-web.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <div className="absolute bottom-4 left-4 right-4">
