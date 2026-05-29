@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Hide the dev-only on-screen "N" indicator (never shown in production anyway).
+  devIndicators: false,
   images: {
     remotePatterns: [
       {

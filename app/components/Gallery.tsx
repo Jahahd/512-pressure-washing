@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 
 // Tap/click only. No hover. No scroll. No auto-flip.
 function FlipBeforeAfter({
@@ -123,9 +123,66 @@ function VideoHero() {
   );
 }
 
+// Slides its child in from the left or right edge when it scrolls into view.
+function RevealOnScroll({
+  from,
+  delay = 0,
+  children,
+}: {
+  from: "left" | "right";
+  delay?: number;
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // Respect users who prefer reduced motion — show instantly, no slide.
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setShown(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setShown(true);
+            obs.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        transform: shown
+          ? "translateX(0)"
+          : `translateX(${from === "left" ? "-64px" : "64px"})`,
+        opacity: shown ? 1 : 0,
+        transition: `transform 1000ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, opacity 1000ms ease ${delay}ms`,
+        willChange: "transform, opacity",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-16 sm:py-20 bg-[#f7f7f7]">
+    <section id="gallery" className="py-16 sm:py-20 bg-[#f7f7f7] overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f1f3d] mb-3">Before &amp; After</h2>
@@ -134,14 +191,26 @@ export default function Gallery() {
         </div>
         <div className="flex justify-center mb-8"><VideoHero /></div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-5">
-          <OverlapBeforeAfter beforeSrc="/deck-before.jpeg" afterSrc="/deck-after.jpeg" label="Deck &amp; Patio Cleaning" />
-          <FlipBeforeAfter beforeSrc="/driveway-new-before.jpeg" afterSrc="/driveway-new-after.jpeg" label="Driveway Pressure Wash" />
-          <FlipBeforeAfter beforeSrc="/entryway-after.jpeg" afterSrc="/entryway-clean.jpeg" label="Front Entryway" />
+          <RevealOnScroll from="left" delay={0}>
+            <OverlapBeforeAfter beforeSrc="/deck-before.jpeg" afterSrc="/deck-after.jpeg" label="Deck &amp; Patio Cleaning" />
+          </RevealOnScroll>
+          <RevealOnScroll from="right" delay={90}>
+            <FlipBeforeAfter beforeSrc="/driveway-new-before.jpeg" afterSrc="/driveway-new-after.jpeg" label="Driveway Pressure Wash" />
+          </RevealOnScroll>
+          <RevealOnScroll from="left" delay={180}>
+            <FlipBeforeAfter beforeSrc="/entryway-after.jpeg" afterSrc="/entryway-clean.jpeg" label="Front Entryway" />
+          </RevealOnScroll>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-5">
-          <FlipBeforeAfter beforeSrc="/driveway-action.jpeg" afterSrc="/sidewalk-clean.jpeg" label="Sidewalk &amp; Curb Cleaning" />
-          <FlipBeforeAfter beforeSrc="/housewash-before.jpg" afterSrc="/housewash-after.jpg" label="House Exterior Soft Wash" />
-          <FlipBeforeAfter beforeSrc="/gutter-after.jpg" afterSrc="/gutter-before.jpg" label="Gutter Brightening" />
+          <RevealOnScroll from="right" delay={0}>
+            <FlipBeforeAfter beforeSrc="/driveway-action.jpeg" afterSrc="/sidewalk-clean.jpeg" label="Sidewalk &amp; Curb Cleaning" />
+          </RevealOnScroll>
+          <RevealOnScroll from="left" delay={90}>
+            <FlipBeforeAfter beforeSrc="/housewash-before.jpg" afterSrc="/housewash-after.jpg" label="House Exterior Soft Wash" />
+          </RevealOnScroll>
+          <RevealOnScroll from="right" delay={180}>
+            <FlipBeforeAfter beforeSrc="/gutter-after.jpg" afterSrc="/gutter-before.jpg" label="Gutter Brightening" />
+          </RevealOnScroll>
         </div>
         <p className="text-center text-gray-500 text-sm mt-10">
           📸 More photos &amp; videos on{" "}
