@@ -36,6 +36,12 @@ const areas = [
     shade: "from-[#4a9fe0] to-[#2e7fd0]",
   },
   {
+    name: "San Marcos, TX",
+    sub: "South of Austin",
+    featured: false,
+    shade: "from-[#3a8fd2] to-[#2068b0]",
+  },
+  {
     name: "Surrounding Areas",
     sub: "Ask us — we travel!",
     featured: false,

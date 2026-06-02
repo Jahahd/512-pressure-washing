@@ -5,7 +5,7 @@ import MobileCTABar from "./components/MobileCTABar";
 export const metadata: Metadata = {
   title: "512 Pressure Washing | Georgetown TX",
   description:
-    "Professional pressure washing, soft washing, house exterior cleaning, driveway, patio, gutter, and window cleaning in Georgetown TX, Liberty Hill, Cedar Park, Round Rock, and Austin TX. Free quotes!",
+    "Professional pressure washing, soft washing, house exterior cleaning, driveway, patio, gutter, and window cleaning in Georgetown TX, Liberty Hill, Cedar Park, Round Rock, San Marcos, Pflugerville, and Austin TX. Free quotes!",
 };
 
 export default function RootLayout({

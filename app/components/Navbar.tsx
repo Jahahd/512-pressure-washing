@@ -8,11 +8,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#services", label: "Services" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#areas", label: "Service Areas" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#services", label: "Services" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/#gallery", label: "Gallery" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   // Lock body scroll while the mobile drawer is open
@@ -55,14 +54,22 @@ export default function Navbar() {
           {/* Desktop nav — unchanged */}
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="text-[#3d3d3d] hover:text-[#2e7fd6] transition-colors font-medium">
+              <a
+                key={l.href}
+                href={l.href}
+                className={`transition-colors font-medium ${
+                  l.label === "512 Club"
+                    ? "text-[#2e7fd6] font-extrabold"
+                    : "text-[#3d3d3d] hover:text-[#2e7fd6]"
+                }`}
+              >
                 {l.label}
               </a>
             ))}
             <a href="tel:5126433408" className="text-[#3d3d3d] hover:text-[#2e7fd6] transition-colors font-medium">
               📞 (512) 643-3408
             </a>
-            <a href="#contact" className="bg-[#2e7fd6] hover:bg-[#4a9fe8] text-white font-bold px-5 py-2 rounded-full transition-colors">
+            <a href="/#contact" className="bg-[#2e7fd6] hover:bg-[#4a9fe8] text-white font-bold px-5 py-2 rounded-full transition-colors">
               Free Quote
             </a>
           </nav>
@@ -145,7 +152,7 @@ export default function Navbar() {
         {/* Quote button pinned at the bottom of the drawer */}
         <div className="px-4 py-4 border-t border-gray-200">
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setOpen(false)}
             className="block bg-[#2e7fd6] text-white font-bold px-5 py-4 rounded-full text-center text-base"
           >

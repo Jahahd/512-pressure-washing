@@ -32,11 +32,11 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-4 text-lg">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               {[
-                ["#services", "Services"],
-                ["#pricing", "Pricing"],
-                ["#areas", "Service Areas"],
-                ["#gallery", "Gallery"],
-                ["#contact", "Get a Free Quote"],
+                ["/#services", "Services"],
+                ["/#pricing", "Pricing"],
+                ["/#areas", "Service Areas"],
+                ["/#gallery", "Gallery"],
+                ["/#contact", "Get a Free Quote"],
               ].map(([href, label]) => (
                 <li key={href}>
                   <a
@@ -73,6 +73,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>📍 Georgetown, TX 78626</li>
+              <li>🕐 Open Daily · 9 AM – 8 PM</li>
             </ul>
             <div className="flex gap-3 mt-4">
               <a

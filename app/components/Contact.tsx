@@ -66,6 +66,11 @@ export default function Contact() {
               <p className="text-[#3d3d3d]">Georgetown, TX 78626</p>
             </div>
             <div>
+              <h3 className="text-xl font-bold mb-1 text-[#2e7fd6]">Hours</h3>
+              <p className="text-[#161616] font-semibold">Open 7 Days a Week</p>
+              <p className="text-[#3d3d3d]">9:00 AM – 8:00 PM daily</p>
+            </div>
+            <div>
               <h3 className="text-xl font-bold mb-3 text-[#2e7fd6]">Follow Us</h3>
               <div className="flex gap-4">
                 <a

@@ -10,7 +10,7 @@ export default function MobileCTABar() {
       }}
     >
       <a
-        href="#contact"
+        href="/#contact"
         className="relative w-full flex items-center justify-center bg-[#2e7fd6] hover:bg-[#4a9fe8] active:bg-[#2569b8] text-white font-extrabold rounded-full text-lg"
         style={{ minHeight: 56 }}
       >
