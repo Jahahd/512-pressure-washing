@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MobileCTABar from "./components/MobileCTABar";
-import SeasonalPromoBanner from "./components/SeasonalPromoBanner";
 
 export const metadata: Metadata = {
   title: "512 Pressure Washing | Georgetown TX",
@@ -17,7 +16,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="min-h-full flex flex-col">
-        <SeasonalPromoBanner />
         {children}
         <MobileCTABar />
       </body>

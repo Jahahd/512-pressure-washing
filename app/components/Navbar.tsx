@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SeasonalPromoBanner from "./SeasonalPromoBanner";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,6 +36,8 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm select-none">
+        {/* Promo strip rides along inside the sticky header so it stays pinned to the top while scrolling */}
+        <SeasonalPromoBanner />
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
             <Image

@@ -20,11 +20,11 @@ export default function SeasonalPromoBanner() {
     <div className="relative z-50 bg-gradient-to-r from-[#f97316] to-[#ef4444] text-white">
       <a
         href="#contact"
-        className="block text-center font-extrabold px-10 py-2.5 text-sm sm:text-base leading-snug"
+        className="block text-center font-extrabold px-9 py-2 text-[11px] sm:text-sm leading-snug"
       >
         <span className="mr-1">{offer.emoji}</span>
         {offer.label} — {offer.deal}!{" "}
-        <span className="font-bold underline underline-offset-2">
+        <span className="font-bold underline underline-offset-2 whitespace-nowrap">
           {offer.urgency} →
         </span>
       </a>

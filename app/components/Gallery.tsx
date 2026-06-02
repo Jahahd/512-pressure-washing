@@ -30,10 +30,12 @@ function FlipBeforeAfter({
         className="absolute inset-0 transition-opacity duration-700"
         style={{ opacity: flipped ? 0 : 1 }}
       >
-        <img
+        <Image
           src={beforeSrc}
           alt={`Before – ${label}`}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover pointer-events-none"
           style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
@@ -50,10 +52,12 @@ function FlipBeforeAfter({
         className="absolute inset-0 transition-opacity duration-700"
         style={{ opacity: flipped ? 1 : 0 }}
       >
-        <img
+        <Image
           src={afterSrc}
           alt={`After – ${label}`}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover pointer-events-none"
           style={{ objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
@@ -99,21 +103,54 @@ function OverlapBeforeAfter({
   );
 }
 
+// The clip is large, so we don't download it on initial page load. It only
+// loads + plays once the user scrolls near it (keeps first paint fast).
 function VideoHero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLVideoElement>(null);
+  const fgRef = useRef<HTMLVideoElement>(null);
+  const [load, setLoad] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setLoad(true);
+            obs.disconnect();
+          }
+        }
+      },
+      { rootMargin: "120px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!load) return;
+    for (const v of [bgRef.current, fgRef.current]) {
+      if (v) {
+        v.load();
+        v.play().catch(() => {});
+      }
+    }
+  }, [load]);
+
+  const src = load ? "/pressure-washing-web.mp4" : undefined;
+
   return (
-    <div className="relative w-full max-w-xs sm:max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl aspect-square">
-      <video className="absolute inset-0 w-full h-full object-cover"
+    <div ref={ref} className="relative w-full max-w-xs sm:max-w-sm mx-auto rounded-2xl overflow-hidden shadow-xl aspect-square">
+      <video ref={bgRef} className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: "blur(20px) brightness(0.5)", transform: "scale(1.15)" }}
-        autoPlay muted loop playsInline poster="/house-after.jpeg">
-        <source src="/pressure-washing-web.mp4" type="video/mp4" />
-      </video>
+        muted loop playsInline preload="none" poster="/video-poster.jpg" src={src} />
       <div className="absolute inset-y-0 left-0 z-10 w-12 sm:w-16 bg-gradient-to-r from-black/60 to-transparent pointer-events-none" />
       <div className="absolute inset-y-0 right-0 z-10 w-12 sm:w-16 bg-gradient-to-l from-black/60 to-transparent pointer-events-none" />
-      <video className="absolute inset-0 w-full h-full object-cover"
+      <video ref={fgRef} className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: "center 80%" }}
-        autoPlay muted loop playsInline poster="/house-after.jpeg">
-        <source src="/pressure-washing-web.mp4" type="video/mp4" />
-      </video>
+        muted loop playsInline preload="none" poster="/video-poster.jpg" src={src} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <div className="absolute bottom-4 left-4 right-4">
         <p className="text-white font-extrabold text-sm sm:text-base drop-shadow">512 Pressure Washing — In Action</p>
@@ -169,9 +206,9 @@ function RevealOnScroll({
       style={{
         transform: shown
           ? "translateX(0)"
-          : `translateX(${from === "left" ? "-64px" : "64px"})`,
+          : `translateX(${from === "left" ? "-90px" : "90px"})`,
         opacity: shown ? 1 : 0,
-        transition: `transform 1000ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, opacity 1000ms ease ${delay}ms`,
+        transition: `transform 1400ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, opacity 1400ms ease ${delay}ms`,
         willChange: "transform, opacity",
       }}
     >
@@ -194,10 +231,10 @@ export default function Gallery() {
           <RevealOnScroll from="left" delay={0}>
             <OverlapBeforeAfter beforeSrc="/deck-before.jpeg" afterSrc="/deck-after.jpeg" label="Deck &amp; Patio Cleaning" />
           </RevealOnScroll>
-          <RevealOnScroll from="right" delay={90}>
+          <RevealOnScroll from="right" delay={150}>
             <FlipBeforeAfter beforeSrc="/driveway-new-before.jpeg" afterSrc="/driveway-new-after.jpeg" label="Driveway Pressure Wash" />
           </RevealOnScroll>
-          <RevealOnScroll from="left" delay={180}>
+          <RevealOnScroll from="left" delay={300}>
             <FlipBeforeAfter beforeSrc="/entryway-after.jpeg" afterSrc="/entryway-clean.jpeg" label="Front Entryway" />
           </RevealOnScroll>
         </div>
@@ -205,10 +242,10 @@ export default function Gallery() {
           <RevealOnScroll from="right" delay={0}>
             <FlipBeforeAfter beforeSrc="/driveway-action.jpeg" afterSrc="/sidewalk-clean.jpeg" label="Sidewalk &amp; Curb Cleaning" />
           </RevealOnScroll>
-          <RevealOnScroll from="left" delay={90}>
+          <RevealOnScroll from="left" delay={150}>
             <FlipBeforeAfter beforeSrc="/housewash-before.jpg" afterSrc="/housewash-after.jpg" label="House Exterior Soft Wash" />
           </RevealOnScroll>
-          <RevealOnScroll from="right" delay={180}>
+          <RevealOnScroll from="right" delay={300}>
             <FlipBeforeAfter beforeSrc="/gutter-after.jpg" afterSrc="/gutter-before.jpg" label="Gutter Brightening" />
           </RevealOnScroll>
         </div>
