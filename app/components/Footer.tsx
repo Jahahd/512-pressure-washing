@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#161616] text-gray-400 pt-12 pb-28 md:pb-12">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
           {/* Brand */}
           <div className="flex flex-col items-start gap-4">
             <div className="flex items-center gap-3">
@@ -27,35 +27,12 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Contact — moved down from the "Get Your Free Quote" section */}
           <div>
-            <h4 className="text-white font-bold mb-4 text-lg">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              {[
-                ["/#services", "Services"],
-                ["/#pricing", "Pricing"],
-                ["/#areas", "Service Areas"],
-                ["/#gallery", "Gallery"],
-                ["/#contact", "Get a Free Quote"],
-              ].map(([href, label]) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    className="hover:text-[#4a9fe8] transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-bold mb-4 text-lg">Contact Us</h4>
+            <h4 className="text-white font-bold mb-4 text-lg">Get In Touch</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                📞{" "}
+                📞 <span className="text-gray-300 font-medium">Phone / Text:</span>{" "}
                 <a
                   href="tel:5126433408"
                   className="hover:text-[#4a9fe8] transition-colors"
@@ -64,7 +41,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                ✉️{" "}
+                ✉️ <span className="text-gray-300 font-medium">Email:</span>{" "}
                 <a
                   href="mailto:512washing@gmail.com"
                   className="hover:text-[#4a9fe8] transition-colors"
@@ -72,10 +49,11 @@ export default function Footer() {
                   512washing@gmail.com
                 </a>
               </li>
-              <li>📍 Georgetown, TX 78626</li>
-              <li>🕐 Open Daily · 9 AM – 8 PM</li>
+              <li>📍 <span className="text-gray-300 font-medium">Location:</span> Georgetown, TX 78626</li>
+              <li>🕐 <span className="text-gray-300 font-medium">Hours:</span> Open 7 Days · 9 AM – 8 PM</li>
             </ul>
-            <div className="flex gap-3 mt-4">
+            <h4 className="text-white font-bold mt-6 mb-3 text-lg">Follow Us</h4>
+            <div className="flex gap-3">
               <a
                 href="https://www.facebook.com/profile.php?id=61578914597478"
                 target="_blank"

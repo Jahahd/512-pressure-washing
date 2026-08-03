@@ -40,69 +40,10 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-10">
-          {/* Contact Info */}
-          <div className="md:col-span-2 flex flex-col gap-6 text-[#161616]">
-            <div>
-              <h3 className="text-xl font-bold mb-1 text-[#2e7fd6]">Phone / Text</h3>
-              <a
-                href="tel:5126433408"
-                className="text-[#161616] hover:text-[#2e7fd6] text-lg font-semibold transition-colors"
-              >
-                (512) 643-3408
-              </a>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-1 text-[#2e7fd6]">Email</h3>
-              <a
-                href="mailto:512washing@gmail.com"
-                className="text-[#3d3d3d] hover:text-[#2e7fd6] transition-colors"
-              >
-                512washing@gmail.com
-              </a>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-1 text-[#2e7fd6]">Location</h3>
-              <p className="text-[#3d3d3d]">Georgetown, TX 78626</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-1 text-[#2e7fd6]">Hours</h3>
-              <p className="text-[#161616] font-semibold">Open 7 Days a Week</p>
-              <p className="text-[#3d3d3d]">9:00 AM – 8:00 PM daily</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-3 text-[#2e7fd6]">Follow Us</h3>
-              <div className="flex gap-4">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61578914597478"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#dcdcdc] hover:bg-[#2e7fd6] hover:text-white text-[#161616] px-4 py-2 rounded-lg font-medium transition-colors text-sm"
-                >
-                  Facebook
-                </a>
-                <a
-                  href="https://www.instagram.com/512pressurewashing/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#dcdcdc] hover:bg-[#2e7fd6] hover:text-white text-[#161616] px-4 py-2 rounded-lg font-medium transition-colors text-sm"
-                >
-                  Instagram
-                </a>
-                <a
-                  href="https://www.tiktok.com/@512pressurewashing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#dcdcdc] hover:bg-[#2e7fd6] hover:text-white text-[#161616] px-4 py-2 rounded-lg font-medium transition-colors text-sm"
-                >
-                  TikTok
-                </a>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-2xl mx-auto">
 
           {/* Form */}
-          <div className="md:col-span-3 bg-[#f7f7f7] rounded-2xl p-8 shadow-md border border-gray-200">
+          <div className="bg-[#f7f7f7] rounded-2xl p-8 shadow-md border border-gray-200">
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full text-center py-8">
                 <div className="text-6xl mb-4">✅</div>

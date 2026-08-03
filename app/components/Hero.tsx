@@ -26,8 +26,8 @@ export default function Hero() {
           className="mx-auto mb-6 rounded-full shadow-2xl"
         />
         <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
-          Georgetown&apos;s #1<br />
-          <span className="text-[#4a9fe8]">Pressure Washing</span> Service
+          Making Texas <span className="text-[#4a9fe8]">Shine</span><br />
+          One Wash At A Time
         </h1>
         <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
           Professional pressure washing &amp; soft washing for homes, driveways,
