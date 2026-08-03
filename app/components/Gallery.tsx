@@ -62,7 +62,7 @@ function BeforeAfterSlider({
         src={afterSrc}
         alt={`After – ${label}`}
         fill
-        sizes="(max-width: 768px) 100vw, 33vw"
+        sizes="(max-width: 640px) 96vw, (max-width: 768px) 48vw, 32vw"
         className="object-cover pointer-events-none"
         style={{ objectFit: "cover" }}
         draggable={false}
@@ -77,7 +77,7 @@ function BeforeAfterSlider({
           src={beforeSrc}
           alt={`Before – ${label}`}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes="(max-width: 640px) 96vw, (max-width: 768px) 48vw, 32vw"
           className="object-cover"
           style={{ objectFit: "cover" }}
           draggable={false}
