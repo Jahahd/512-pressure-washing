@@ -1,43 +1,43 @@
 const areas = [
   {
-    name: "Georgetown, TX",
+    name: "San Marcos, TX",
     sub: "Our Home Base",
     featured: true,
     shade: "from-[#2e7fd6] to-[#1a5fa8]",
   },
   {
-    name: "Liberty Hill, TX",
-    sub: "NW of Georgetown",
+    name: "Wimberley, TX",
+    sub: "West · Hill Country",
     featured: false,
     shade: "from-[#3a8fd6] to-[#2272b8]",
   },
   {
-    name: "Cedar Park, TX",
-    sub: "South of Georgetown",
+    name: "New Braunfels, TX",
+    sub: "South of San Marcos",
     featured: false,
     shade: "from-[#4a9fe8] to-[#2e7fd6]",
   },
   {
-    name: "Round Rock, TX",
-    sub: "SE of Georgetown",
+    name: "Buda, TX",
+    sub: "North of San Marcos",
     featured: false,
     shade: "from-[#5aafe8] to-[#3a8fd6]",
   },
   {
-    name: "Austin, TX",
-    sub: "Greater Austin Area",
+    name: "Lockhart, TX",
+    sub: "East of San Marcos",
     featured: false,
     shade: "from-[#3d8fcc] to-[#2a70aa]",
   },
   {
-    name: "Pflugerville, TX",
-    sub: "East of Austin",
+    name: "Dripping Springs, TX",
+    sub: "Northwest",
     featured: false,
     shade: "from-[#4a9fe0] to-[#2e7fd0]",
   },
   {
-    name: "San Marcos, TX",
-    sub: "South of Austin",
+    name: "Georgetown, TX",
+    sub: "Greater Austin — up north",
     featured: false,
     shade: "from-[#3a8fd2] to-[#2068b0]",
   },
@@ -72,14 +72,14 @@ export default function ServiceAreas() {
           {/* Outer glow backdrop */}
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#1a3a6e]/30 to-[#2e7fd6]/10 blur-2xl -z-10" />
 
-          {/* Featured Georgetown tile */}
+          {/* Featured San Marcos tile */}
           <div className="mb-4">
             <div className="bg-gradient-to-br from-[#1a3a6e] to-[#2e7fd6] rounded-2xl p-6 flex items-center gap-5 shadow-xl border border-[#4a9fe8]/30">
               <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-2xl shrink-0 shadow-inner">
                 🏠
               </div>
               <div>
-                <p className="text-white font-extrabold text-xl leading-tight">Georgetown, TX</p>
+                <p className="text-white font-extrabold text-xl leading-tight">San Marcos, TX</p>
                 <p className="text-blue-200 text-sm font-medium">Our Home Base · Primary Service Area</p>
               </div>
               <div className="ml-auto hidden sm:block">
@@ -126,6 +126,12 @@ export default function ServiceAreas() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+            <a
+              href="mailto:512washing@gmail.com"
+              className="bg-white text-[#161616] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-center break-all"
+            >
+              ✉️ 512washing@gmail.com
+            </a>
             <a
               href="tel:5126433408"
               className="bg-white text-[#161616] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors text-center"

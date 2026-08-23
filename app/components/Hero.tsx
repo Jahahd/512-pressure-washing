@@ -31,8 +31,8 @@ export default function Hero() {
         </h1>
         <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
           Professional pressure washing &amp; soft washing for homes, driveways,
-          patios, gutters, and more. Serving Georgetown, Liberty Hill, Cedar Park,
-          Round Rock &amp; Austin.
+          patios, gutters, and more. Serving San Marcos, Wimberley, New Braunfels,
+          Buda, Lockhart, Dripping Springs &amp; the surrounding Hill Country.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

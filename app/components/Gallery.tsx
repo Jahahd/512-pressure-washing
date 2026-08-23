@@ -164,7 +164,7 @@ function VideoHero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <div className="absolute bottom-4 left-4 right-4">
         <p className="text-white font-extrabold text-sm sm:text-base drop-shadow">512 Pressure Washing — In Action</p>
-        <p className="text-gray-300 text-xs">Georgetown, TX</p>
+        <p className="text-gray-300 text-xs">San Marcos, TX</p>
       </div>
     </div>
   );
@@ -235,7 +235,7 @@ export default function Gallery() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f1f3d] mb-3">Before &amp; After</h2>
           <div className="w-16 h-1 bg-[#2e7fd6] mx-auto mb-4 rounded" />
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
-            Real results from real Georgetown-area jobs. <span className="font-semibold text-[#0f1f3d]">Drag the sliders</span> to see the difference.
+            Real results from real 512 Pressure Washing. <span className="font-semibold text-[#0f1f3d]">Drag the sliders</span> to see the difference.
           </p>
         </div>
         <div className="flex justify-center mb-8"><VideoHero /></div>

@@ -22,8 +22,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-500 max-w-xs">
-              Professional exterior cleaning services in Georgetown TX and
-              surrounding Central Texas areas.
+              Professional exterior cleaning services in San Marcos TX and
+              the surrounding Central Texas Hill Country.
             </p>
           </div>
 
@@ -49,7 +49,7 @@ export default function Footer() {
                   512washing@gmail.com
                 </a>
               </li>
-              <li>📍 <span className="text-gray-300 font-medium">Location:</span> Georgetown, TX 78626</li>
+              <li>📍 <span className="text-gray-300 font-medium">Location:</span> San Marcos, TX 78666</li>
               <li>🕐 <span className="text-gray-300 font-medium">Hours:</span> Open 7 Days · 9 AM – 8 PM</li>
             </ul>
             <h4 className="text-white font-bold mt-6 mb-3 text-lg">Follow Us</h4>
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-600">
-          © {year} 512 Pressure Washing — All Rights Reserved. Georgetown, TX
+          © {year} 512 Pressure Washing — All Rights Reserved. San Marcos, TX
         </div>
       </div>
     </footer>

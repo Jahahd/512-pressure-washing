@@ -117,7 +117,7 @@ export default function Contact() {
                   <input
                     name="address"
                     required
-                    placeholder="123 Main St, Georgetown TX"
+                    placeholder="123 Main St, San Marcos TX"
                     className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:border-[#2e7fd6] text-[#161616]"
                   />
                 </div>

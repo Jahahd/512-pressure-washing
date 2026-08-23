@@ -58,7 +58,7 @@ function calendarLinks(date: Date, win: Win) {
   const details =
     `Your requested visit with 512 Pressure Washing. Preferred time: ${win}. ` +
     `We'll confirm with you shortly. Questions? Call or text (512) 643-3408.`;
-  const location = "Your property — 512 Pressure Washing (Georgetown, TX area)";
+  const location = "Your property — 512 Pressure Washing (San Marcos, TX area)";
 
   const now = new Date();
   const stamp =
@@ -357,7 +357,7 @@ export default function Booking() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-[#161616] mb-1">Service Address *</label>
-                    <input name="address" required placeholder="123 Main St, Georgetown TX" className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:border-[#2e7fd6] text-[#161616]" />
+                    <input name="address" required placeholder="123 Main St, San Marcos TX" className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white focus:outline-none focus:border-[#2e7fd6] text-[#161616]" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-[#161616] mb-1">Service Needed *</label>
